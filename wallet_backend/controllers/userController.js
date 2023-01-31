@@ -92,6 +92,31 @@ exports.credit = expressAsyncHandler(async (req,res)=> {
         
     }
  
+})
+
+
+//All users
+exports.allUsers = expressAsyncHandler(async (req,res)=> {
+
+    // const {id} = req.body
+    // console.log('id',id);
+   
+    try {
+        const users = await User.find()
+        // const users = user.filter((e) => !e._id.includes(id))
+        if (!users) {
+            return next(new ErrorHander(`NO Records found`, 400));
+          }
+        
+          res.status(200).json({
+            success: true,
+            users
+          });
+    } catch (error) {
+        res.json(error)
+        
+    }
+ 
 
 
 })

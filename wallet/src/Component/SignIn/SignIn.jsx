@@ -56,7 +56,7 @@ const SignIn = () => {
             <div class="m-auto w-full md:w-[50%] lg:w-[40%]">
               <div className="flex flex-col  mb-10 sm:position ">
                 <div>
-                  <h3 className=" text-2xl font-bold font-heading  text-purple-700">
+                  <h3 className=" text-2xl font-bold font-heading  text-black">
                     {/* Header */}
                     Sign In
                   </h3>
@@ -101,7 +101,7 @@ const SignIn = () => {
                 {/* <Link to="/otp"> */}
                 <button
                   type="submit"
-                  className="py-4 w-full bg-[#7e22ce] hover:bg-[#9333ea] text-white font-bold rounded-lg transition duration-200"
+                  className="py-4 w-full bg-black hover:bg-gray-800 text-white font-bold rounded-lg transition duration-200"
                 >
                   Sign in
                 </button>

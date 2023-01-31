@@ -106,6 +106,35 @@ export const walletCreditAction = createAsyncThunk(
         }
     }
 )
+
+
+//.............All users------------
+
+
+export const getAllUsersAction = createAsyncThunk(
+    "/allUsers",
+    async ( { rejectWithValue, getState, dispatch }) => {
+        
+        try {
+           
+            const { data } = await axios.get(
+                "/allUsers"
+            );
+
+            console.log('db wallet data', data);
+
+            return data;
+        } catch (error) {
+            if (!error.response) {
+                throw error;
+            }
+            return rejectWithValue(error?.response?.data);
+        }
+    }
+)
+
+
+
 //--------Slices--------------
 
 const userSlices = createSlice({
@@ -172,6 +201,25 @@ const userSlices = createSlice({
             state.appErr = action?.payload?.message;
             state.serverError = action?.error?.message;
         });
+
+
+            //AllUsers
+            builder.addCase(getAllUsersAction.pending, (state, action) => {
+                state.loading = true;
+                state.appErr = undefined;
+                state.serverError = undefined;
+            });
+            builder.addCase(getAllUsersAction.fulfilled, (state, action) => {
+                state.loading = false;
+                state.allUsers = action?.payload;
+                state.appErr = undefined;
+                state.serverError = undefined;
+            });
+            builder.addCase(getAllUsersAction.rejected, (state, action) => {
+                state.loading = false;
+                state.appErr = action?.payload?.message;
+                state.serverError = action?.error?.message;
+            });
 
     }
 })

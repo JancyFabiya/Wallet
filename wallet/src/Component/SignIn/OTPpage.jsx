@@ -52,7 +52,7 @@ const OTPpage = () => {
               <div class="m-auto">
                 <div className="flex flex-col items-center justify-center mb-10">
                   <div>
-                    <h3 className=" text-2xl font-bold font-heading uppercase text-purple-700">
+                    <h3 className=" text-2xl font-bold font-heading uppercase text-black">
                       {/* Header */}
                       OTP Verification
                     </h3>
@@ -82,7 +82,7 @@ const OTPpage = () => {
                   {/* <Link to="/wallet"> */}
                   <button
                     type="submit"
-                    className="py-4 w-full bg-[#7e22ce] hover:bg-[#9333ea] text-white font-bold rounded-lg transition duration-200"
+                    className="py-4 w-full bg-black hover:bg-gray-800 text-white font-bold rounded-lg transition duration-200"
                   >
                     Login
                   </button>
